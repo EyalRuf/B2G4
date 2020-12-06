@@ -217,6 +217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850a1573de65eed409c6e9d7fa9f13a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectableTag: selection
+  highlightMaterial: {fileID: 2100000, guid: d89366ffaddcdd94d9a6e82765b202aa, type: 2}
+  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   mouseSensitivity: 100
   playerBody: {fileID: 1563203292}
 --- !u!1 &133418419
@@ -235,7 +238,7 @@ GameObject:
   - component: {fileID: 133418425}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Selectable
+  m_TagString: selection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -465,52 +468,6 @@ Transform:
   m_Father: {fileID: 1563203292}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1361513578
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1361513579}
-  - component: {fileID: 1361513580}
-  m_Layer: 0
-  m_Name: SelectionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1361513579
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361513578}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.6, y: 5.3, z: 73.85}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1361513580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361513578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee871b92e4377a4a8e6f2ef74f2cdff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectableTag: Selectable
-  highlightMaterial: {fileID: 2100000, guid: d89366ffaddcdd94d9a6e82765b202aa, type: 2}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &1563203290
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +534,7 @@ GameObject:
   - component: {fileID: 1675719900}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Selectable
+  m_TagString: selection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
