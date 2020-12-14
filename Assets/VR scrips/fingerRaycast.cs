@@ -39,7 +39,7 @@ public class fingerRaycast : MonoBehaviour
                 Debug.DrawRay(startPoint.transform.position, startPoint.transform.forward, Color.red);
             }
         }
-        /*
+        /*gasgteag
         if (Physics.Raycast(startPoint.transform.position, startPoint.transform.forward, out hit, Mathf.Infinity))
         {
             if (hit.collider.CompareTag("Tools") && hit.collider != newHitCollider)
