@@ -81,6 +81,7 @@ public class fingerRaycast : MonoBehaviour
     {
         if (pointingAtInteractable != null)
         {
+            // Right now, not every interactable is highlightable. Therefore: 'trygetcomponent'. Otherwise the code pointer breaks.
             if (pointingAtInteractable.TryGetComponent(out Highlightable highlightAble))
             {
                 highlightAble.UnHighlight();
