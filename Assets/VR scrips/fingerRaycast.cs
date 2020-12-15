@@ -11,37 +11,43 @@ public class fingerRaycast : MonoBehaviour
     {
         Debug.DrawRay(startPoint.transform.position, startPoint.transform.forward, rayColor);
 
-        // If pointing at an interactable
+        CheckIfInteractable();
+    }
+
+    private void CheckIfInteractable()
+    {
         if (Physics.Raycast(startPoint.transform.position, startPoint.transform.forward, out hit, Mathf.Infinity, LayerMask.GetMask("Interactable")))
         {
             rayColor = Color.green;
 
-            // if TOOL
-            if (hit.collider.CompareTag("Tools"))
-            {
-                if (toolPointedAt == null)
-                {
-                    toolPointedAt = hit.collider;
-                    toolPointedAt.GetComponent<Highlightable>().Highlight();
-                }
-                else if (toolPointedAt != hit.collider)
-                {
-                    toolPointedAt.GetComponent<Highlightable>().UnHighlight();
-                    toolPointedAt = null;
-                }
-            }
+            CheckIfTool();
         }
         else
         {
             rayColor = Color.red;
 
-            Clear();
+            ClearHighlight();
         }
     }
-    // Already made this a void for future reference.
-    private void Clear()
+
+    private void CheckIfTool()
     {
-        // Unhighlight last tool pointed at if no longer pointing at any.
+        if (hit.collider.CompareTag("Tools"))
+        {
+            if (toolPointedAt == null)
+            {
+                toolPointedAt = hit.collider;
+                toolPointedAt.GetComponent<Highlightable>().Highlight();
+            }
+            else if (toolPointedAt.GetInstanceID() != hit.collider.GetInstanceID())
+            {
+                toolPointedAt.GetComponent<Highlightable>().UnHighlight();
+                toolPointedAt = null;
+            }
+        }
+    }
+    private void ClearHighlight()
+    {
         if (toolPointedAt != null)
         {
             toolPointedAt.GetComponent<Highlightable>().UnHighlight();
