@@ -3,14 +3,15 @@
 public class fingerRaycast : MonoBehaviour
 {
     public GameObject startPoint;
-    public float pointerStartWidth;
-    public float pointerEndWidth;
+    public float pointerStartWidth = 0.025f;
+    public float pointerEndWidth = 0.0125f;
     public float pointerDistance = 2f;
     public Color idlePointerColor = Color.blue;
-    public Color pointingPointerColor = Color.green;
+    public Color pointerSelectColor = Color.green;
 
     private RaycastHit hit;
-    private Collider toolPointedAt;
+    private Vector3 pointerEnd;
+    private Collider pointingAtInteractable;
     private LineRenderer pointingLine;
 
     private void Awake()
@@ -30,64 +31,57 @@ public class fingerRaycast : MonoBehaviour
         {
             if (hit.distance < pointerDistance)
             {
-                CheckIfTool();
+                SelectInteractable();
             }
         }
         else
         {
             ClearHighlight();
+            pointingAtInteractable = null;
         }
     }
+
     private void PointingLine()
     {
-        pointingLine.SetPosition(0, startPoint.transform.position);
-
-        if (toolPointedAt == null)
+        // Check what the player is pointing at > > Change line color and endPos accordingly
+        if (pointingAtInteractable)
         {
-            pointingLine.SetPosition(1, startPoint.transform.position + transform.TransformDirection(Vector3.forward) * pointerDistance);
-
-            pointingLine.material.color = idlePointerColor;
-            pointerStartWidth = 0.005f;
-            pointerEndWidth = 0.005f;
-            pointingLine.startWidth = pointerStartWidth;
-            pointingLine.endWidth = pointerEndWidth;
+            // Snap pointer-end to interactable object
+            pointerEnd = pointingAtInteractable.transform.position;
+            // Line Color
+            pointingLine.material.color = pointerSelectColor;
         }
-    }
-    private void PointingAtTool()
-    {
-        pointingLine.material.color = pointingPointerColor;
-
-        pointerStartWidth = 0.01f;
-        pointerEndWidth = 0.005f;
-
-        pointingLine.startWidth = pointerStartWidth;
-        pointingLine.endWidth = pointerEndWidth;
-
-        pointingLine.SetPosition(1, toolPointedAt.transform.position);
-    }
-    private void CheckIfTool()
-    {
-        if (hit.collider.CompareTag("Tools"))
+        else
         {
-            if (toolPointedAt == null)
-            {
-                toolPointedAt = hit.collider;
-                PointingAtTool();
-                toolPointedAt.GetComponent<Highlightable>().Highlight();
-            }
-            else if (toolPointedAt.GetInstanceID() != hit.collider.GetInstanceID())
-            {
-                toolPointedAt.GetComponent<Highlightable>().UnHighlight();
-                toolPointedAt = null;
-            }
+            pointerEnd = startPoint.transform.position + transform.TransformDirection(Vector3.forward) * pointerDistance;
+            // Line Color
+            pointingLine.material.color = idlePointerColor;
+        }
+        // Line StartPos
+        pointingLine.SetPosition(0, startPoint.transform.position);
+        // Line EndPos
+        pointingLine.SetPosition(1, pointerEnd);
+    }
+
+    private void SelectInteractable()
+    {
+        // The assumption is that every Interactable will highlight. Else this code returns an error!
+        if (pointingAtInteractable == null)
+        {
+            pointingAtInteractable = hit.collider;
+            pointingAtInteractable.GetComponent<Highlightable>().Highlight();
+        }
+        else if (pointingAtInteractable.GetInstanceID() != hit.collider.GetInstanceID())
+        {
+            pointingAtInteractable.GetComponent<Highlightable>().UnHighlight();
+            pointingAtInteractable = null;
         }
     }
     private void ClearHighlight()
     {
-        if (toolPointedAt != null)
+        if (pointingAtInteractable.TryGetComponent(out Highlightable highlightAble))
         {
-            toolPointedAt.GetComponent<Highlightable>().UnHighlight();
-            toolPointedAt = null;
+            highlightAble.UnHighlight();
         }
     }
 
