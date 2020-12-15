@@ -135,7 +135,8 @@ GameObject:
   - component: {fileID: 22030817}
   - component: {fileID: 22030822}
   - component: {fileID: 22030821}
-  m_Layer: 0
+  - component: {fileID: 22030823}
+  m_Layer: 9
   m_Name: Cube (7)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -249,6 +250,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &22030823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22030816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &58812104
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +277,8 @@ GameObject:
   - component: {fileID: 58812108}
   - component: {fileID: 58812107}
   - component: {fileID: 58812106}
-  m_Layer: 0
+  - component: {fileID: 58812111}
+  m_Layer: 9
   m_Name: Cube (21)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -377,6 +392,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58812104}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &58812111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58812104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &80137509
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +935,8 @@ GameObject:
   - component: {fileID: 277926199}
   - component: {fileID: 277926204}
   - component: {fileID: 277926203}
-  m_Layer: 0
+  - component: {fileID: 277926205}
+  m_Layer: 9
   m_Name: Cube (12)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -1021,6 +1050,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &277926205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277926198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &327509710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1238,8 @@ GameObject:
   - component: {fileID: 465734937}
   - component: {fileID: 465734942}
   - component: {fileID: 465734941}
-  m_Layer: 0
+  - component: {fileID: 465734943}
+  m_Layer: 9
   m_Name: Cube (14)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -1310,6 +1353,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &465734943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465734936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &517627175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1473,8 @@ GameObject:
   - component: {fileID: 547767679}
   - component: {fileID: 547767684}
   - component: {fileID: 547767683}
-  m_Layer: 0
+  - component: {fileID: 547767685}
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -1531,6 +1588,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &547767685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547767678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &591846926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,7 +1743,8 @@ GameObject:
   - component: {fileID: 697241688}
   - component: {fileID: 697241693}
   - component: {fileID: 697241692}
-  m_Layer: 0
+  - component: {fileID: 697241694}
+  m_Layer: 9
   m_Name: Cube (17)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -1787,6 +1858,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &697241694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697241687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &803489028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,7 +1885,8 @@ GameObject:
   - component: {fileID: 803489029}
   - component: {fileID: 803489034}
   - component: {fileID: 803489033}
-  m_Layer: 0
+  - component: {fileID: 803489035}
+  m_Layer: 9
   m_Name: Cube (13)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -1915,6 +2000,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &803489035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803489028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &810778825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,7 +2027,8 @@ GameObject:
   - component: {fileID: 810778826}
   - component: {fileID: 810778831}
   - component: {fileID: 810778830}
-  m_Layer: 0
+  - component: {fileID: 810778832}
+  m_Layer: 9
   m_Name: Cube (15)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -2043,6 +2142,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &810778832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810778825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &912322784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,7 +2198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1009512338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pyramid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2138,7 +2250,8 @@ GameObject:
   - component: {fileID: 1028866809}
   - component: {fileID: 1028866814}
   - component: {fileID: 1028866813}
-  m_Layer: 0
+  - component: {fileID: 1028866815}
+  m_Layer: 9
   m_Name: Cube (8)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -2252,6 +2365,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1028866815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028866808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1083060428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,7 +2520,8 @@ GameObject:
   - component: {fileID: 1193021559}
   - component: {fileID: 1193021564}
   - component: {fileID: 1193021563}
-  m_Layer: 0
+  - component: {fileID: 1193021565}
+  m_Layer: 9
   m_Name: Cube (19)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -2508,6 +2635,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1193021565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193021558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1001 &1304892704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2807,7 +2947,8 @@ GameObject:
   - component: {fileID: 1354091620}
   - component: {fileID: 1354091625}
   - component: {fileID: 1354091624}
-  m_Layer: 0
+  - component: {fileID: 1354091626}
+  m_Layer: 9
   m_Name: Cube (9)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -2921,6 +3062,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1354091626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354091619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1354906085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,7 +3089,8 @@ GameObject:
   - component: {fileID: 1354906086}
   - component: {fileID: 1354906091}
   - component: {fileID: 1354906090}
-  m_Layer: 0
+  - component: {fileID: 1354906092}
+  m_Layer: 9
   m_Name: Cube (10)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -3049,6 +3204,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1354906092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354906085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1393257101
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,7 +3323,8 @@ GameObject:
   - component: {fileID: 1459445786}
   - component: {fileID: 1459445791}
   - component: {fileID: 1459445790}
-  m_Layer: 0
+  - component: {fileID: 1459445792}
+  m_Layer: 9
   m_Name: Cube (16)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -3269,6 +3438,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1459445792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459445785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1589569463
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,7 +3465,8 @@ GameObject:
   - component: {fileID: 1589569464}
   - component: {fileID: 1589569469}
   - component: {fileID: 1589569468}
-  m_Layer: 0
+  - component: {fileID: 1589569470}
+  m_Layer: 9
   m_Name: Cube (20)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -3397,6 +3580,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1589569470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589569463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1676159720
 GameObject:
   m_ObjectHideFlags: 0
@@ -3564,7 +3760,8 @@ GameObject:
   - component: {fileID: 1767608237}
   - component: {fileID: 1767608242}
   - component: {fileID: 1767608241}
-  m_Layer: 0
+  - component: {fileID: 1767608243}
+  m_Layer: 9
   m_Name: Cube (18)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -3678,6 +3875,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1767608243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767608236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1893880703
 GameObject:
   m_ObjectHideFlags: 0
@@ -3692,7 +3902,8 @@ GameObject:
   - component: {fileID: 1893880704}
   - component: {fileID: 1893880709}
   - component: {fileID: 1893880708}
-  m_Layer: 0
+  - component: {fileID: 1893880710}
+  m_Layer: 9
   m_Name: Cube (11)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -3806,6 +4017,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1893880710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893880703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1918107922
 GameObject:
   m_ObjectHideFlags: 0
@@ -4293,7 +4517,8 @@ GameObject:
   - component: {fileID: 1987490718}
   - component: {fileID: 1987490717}
   - component: {fileID: 1987490716}
-  m_Layer: 0
+  - component: {fileID: 1987490721}
+  m_Layer: 9
   m_Name: Cube (22)
   m_TagString: Tools
   m_Icon: {fileID: 0}
@@ -4407,6 +4632,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987490714}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1987490721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987490714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4e08c8fba960459c2170306bb61c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &2075572364
 GameObject:
   m_ObjectHideFlags: 0
