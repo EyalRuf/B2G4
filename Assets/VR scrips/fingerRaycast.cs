@@ -21,34 +21,17 @@ public class fingerRaycast : MonoBehaviour
 
     private void Update()
     {
-        CheckIfInteractable();
         PointingLine();
+        CheckIfInteractable();
     }
-
-    private void CheckIfInteractable()
-    {
-        if (Physics.Raycast(startPoint.transform.position, startPoint.transform.forward, out hit, Mathf.Infinity, LayerMask.GetMask("Interactable")))
-        {
-            if (hit.distance < pointerDistance)
-            {
-                SelectInteractable();
-            }
-        }
-        else
-        {
-            ClearHighlight();
-            pointingAtInteractable = null;
-        }
-    }
-
     private void PointingLine()
     {
         // Check what the player is pointing at > > Change line color and endPos accordingly
         if (pointingAtInteractable)
         {
-            // Snap pointer-end to interactable object
+            // Snap pointer-end to the interactable object
             pointerEnd = pointingAtInteractable.transform.position;
-            // Line Color
+            // Line Color confirms you're pointing at an interactable
             pointingLine.material.color = pointerSelectColor;
         }
         else
@@ -63,17 +46,31 @@ public class fingerRaycast : MonoBehaviour
         pointingLine.SetPosition(1, pointerEnd);
     }
 
-    private void SelectInteractable()
+    private void CheckIfInteractable()
     {
-        // The assumption is that every Interactable will highlight. Else this code returns an error!
-        if (pointingAtInteractable == null)
+        if (Physics.Raycast(startPoint.transform.position, startPoint.transform.forward, out hit, Mathf.Infinity, LayerMask.GetMask("Interactable")))
         {
-            pointingAtInteractable = hit.collider;
-            pointingAtInteractable.GetComponent<Highlightable>().Highlight();
+            if (hit.distance < pointerDistance)
+            {
+                if (pointingAtInteractable == null)
+                {
+                    pointingAtInteractable = hit.collider;
+                    pointingAtInteractable.GetComponent<Highlightable>().Highlight();
+                }
+                else if (pointingAtInteractable.GetInstanceID() != hit.collider.GetInstanceID())
+                {
+                    pointingAtInteractable.GetComponent<Highlightable>().UnHighlight();
+                    pointingAtInteractable = null;
+                }
+            }
+            else
+            {
+                ClearHighlight();
+            }
         }
-        else if (pointingAtInteractable.GetInstanceID() != hit.collider.GetInstanceID())
+        else
         {
-            pointingAtInteractable.GetComponent<Highlightable>().UnHighlight();
+            ClearHighlight();
             pointingAtInteractable = null;
         }
     }
@@ -81,11 +78,7 @@ public class fingerRaycast : MonoBehaviour
     {
         if (pointingAtInteractable != null)
         {
-            // Right now, not every interactable is highlightable. Therefore: 'trygetcomponent'. Otherwise the code pointer breaks.
-            if (pointingAtInteractable.TryGetComponent(out Highlightable highlightAble))
-            {
-                highlightAble.UnHighlight();
-            }
+            pointingAtInteractable.GetComponent<Highlightable>().UnHighlight();
         }
     }
 
