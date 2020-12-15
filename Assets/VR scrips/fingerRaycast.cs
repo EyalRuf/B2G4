@@ -79,9 +79,12 @@ public class fingerRaycast : MonoBehaviour
     }
     private void ClearHighlight()
     {
-        if (pointingAtInteractable.TryGetComponent(out Highlightable highlightAble))
+        if (pointingAtInteractable != null)
         {
-            highlightAble.UnHighlight();
+            if (pointingAtInteractable.TryGetComponent(out Highlightable highlightAble))
+            {
+                highlightAble.UnHighlight();
+            }
         }
     }
 
