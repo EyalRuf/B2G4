@@ -50,6 +50,7 @@ public class fingerRaycast : MonoBehaviour
     {
         if (Physics.Raycast(startPoint.transform.position, startPoint.transform.forward, out hit, Mathf.Infinity, LayerMask.GetMask("Interactable")))
         {
+            // If interactable is within range
             if (hit.distance < pointerDistance)
             {
                 if (pointingAtInteractable == null)
@@ -57,6 +58,7 @@ public class fingerRaycast : MonoBehaviour
                     pointingAtInteractable = hit.collider;
                     pointingAtInteractable.GetComponent<Highlightable>().Highlight();
                 }
+                // If you directly switched from interactable- to interactable without pointing at 'nothing'
                 else if (pointingAtInteractable.GetInstanceID() != hit.collider.GetInstanceID())
                 {
                     pointingAtInteractable.GetComponent<Highlightable>().UnHighlight();
@@ -66,6 +68,7 @@ public class fingerRaycast : MonoBehaviour
             else
             {
                 ClearHighlight();
+                pointingAtInteractable = null;
             }
         }
         else
