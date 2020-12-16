@@ -1432,8 +1432,8 @@ MonoBehaviour:
   AimButton: 67108864
   TeleportButton: 67108864
   FastTeleport: 1
-  LeftHand: {fileID: 0}
-  RightHand: {fileID: 0}
+  LeftHand: {fileID: 1583329459}
+  RightHand: {fileID: 1582510628}
   InputMode: 2
   AimingController: 2
   CapacitiveAimAndTeleportButton: 4
