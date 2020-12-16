@@ -2,7 +2,6 @@
 
 public class fingerRaycast : MonoBehaviour
 {
-    public GameObject startPoint;
     public float pointerStartWidth = 0.025f;
     public float pointerEndWidth = 0.0125f;
     public float pointerDistance = 2f;
@@ -13,10 +12,12 @@ public class fingerRaycast : MonoBehaviour
     private Vector3 pointerEnd;
     private Collider pointingAtInteractable;
     private LineRenderer pointingLine;
+    private OculusInput input;
 
     private void Awake()
     {
         pointingLine = GetComponent<LineRenderer>();
+        input = GetComponent<OculusInput>();
     }
 
     private void Update()
@@ -24,6 +25,7 @@ public class fingerRaycast : MonoBehaviour
         PointingLine();
         CheckIfInteractable();
     }
+
     private void PointingLine()
     {
         // Check what the player is pointing at > > Change line color and endPos accordingly
@@ -36,19 +38,19 @@ public class fingerRaycast : MonoBehaviour
         }
         else
         {
-            pointerEnd = startPoint.transform.position + transform.TransformDirection(Vector3.forward) * pointerDistance;
+            pointerEnd = transform.position + transform.TransformDirection(Vector3.forward) * pointerDistance;
             // Line Color
             pointingLine.material.color = idlePointerColor;
         }
         // Line StartPos
-        pointingLine.SetPosition(0, startPoint.transform.position);
+        pointingLine.SetPosition(0, transform.position);
         // Line EndPos
         pointingLine.SetPosition(1, pointerEnd);
     }
 
     private void CheckIfInteractable()
     {
-        if (Physics.Raycast(startPoint.transform.position, startPoint.transform.forward, out hit, Mathf.Infinity, LayerMask.GetMask("Interactable")))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, LayerMask.GetMask("Interactable")))
         {
             // If interactable is within range
             if (hit.distance < pointerDistance)
@@ -63,6 +65,11 @@ public class fingerRaycast : MonoBehaviour
                 {
                     pointingAtInteractable.GetComponent<Highlightable>().UnHighlight();
                     pointingAtInteractable = null;
+                }
+
+                if (input.triggerPressed)
+                {
+                    print("triggered!");
                 }
             }
             else
