@@ -66,7 +66,7 @@ public class fingerRaycast : MonoBehaviour
                     pointingAtInteractable.GetComponent<Highlightable>().UnHighlight();
                     pointingAtInteractable = null;
                 }
-
+                // PUT EVERYTHING HERE THAT SHOULD HAPPEN IF INTERACTING WITH INTERACTABLE
                 if (input.triggerPressed)
                 {
                     print("triggered!");
