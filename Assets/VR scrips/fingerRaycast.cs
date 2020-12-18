@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using Valve.VR.InteractionSystem;
+using Valve.VR;
 
 public class fingerRaycast : MonoBehaviour
 {
@@ -12,18 +14,45 @@ public class fingerRaycast : MonoBehaviour
     private Vector3 pointerEnd;
     private Collider pointingAtInteractable;
     private LineRenderer pointingLine;
-    private OculusInput input;
+    public Transform pointerDirection;
+
+    private Hand hand;
+    public SteamVR_Action_Boolean trigger;
+
+    private Interacting interactScript;
 
     private void Awake()
     {
+        hand = GetComponent<Hand>();
         pointingLine = GetComponent<LineRenderer>();
-        input = GetComponent<OculusInput>();
+        interactScript = GetComponent<Interacting>();
     }
 
     private void Update()
     {
-        PointingLine();
-        CheckIfInteractable();
+        if (!interactScript.holdingObject) // if not holding an object
+        {
+            if (!pointingLine.enabled) // if pointingline is disabled, enable it.
+            {
+                pointingLine.enabled = true;
+            }
+
+            PointingLine();
+            CheckIfInteractable();
+        }
+        else
+        {
+            pointingLine.enabled = false; // if holding object, disable pointingline.
+        }
+
+        if (pointingAtInteractable)
+        {
+            if (trigger.stateUp) // Interact when pressing trigger (trigger= when releasing)
+            {
+                interactScript.Interact(hand, pointingAtInteractable.gameObject);
+                ClearHighlight();
+            }
+        }
     }
 
     private void PointingLine()
@@ -31,45 +60,40 @@ public class fingerRaycast : MonoBehaviour
         // Check what the player is pointing at > > Change line color and endPos accordingly
         if (pointingAtInteractable)
         {
-            // Snap pointer-end to the interactable object
-            pointerEnd = pointingAtInteractable.transform.position;
-            // Line Color confirms you're pointing at an interactable
-            pointingLine.material.color = pointerSelectColor;
+            pointerEnd = pointingAtInteractable.transform.position; // Snap pointer-end to the interactable object
+
+            pointingLine.material.color = pointerSelectColor; // Line Color confirms you're pointing at an interactable
         }
         else
         {
-            pointerEnd = transform.position + transform.TransformDirection(Vector3.forward) * pointerDistance;
-            // Line Color
-            pointingLine.material.color = idlePointerColor;
+            pointerEnd = pointerDirection.position + pointerDirection.TransformDirection(Vector3.forward) * pointerDistance;
+            pointingLine.material.color = idlePointerColor; // Idle line color
         }
-        // Line StartPos
-        pointingLine.SetPosition(0, transform.position);
-        // Line EndPos
-        pointingLine.SetPosition(1, pointerEnd);
+
+        pointingLine.SetPosition(0, pointerDirection.position); // Line StartPos
+        pointingLine.SetPosition(1, pointerEnd); // Line StartPos
+
     }
 
     private void CheckIfInteractable()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, LayerMask.GetMask("Interactable")))
+        if (Physics.Raycast(pointerDirection.position, pointerDirection.TransformDirection(Vector3.forward) * pointerDistance, out hit, Mathf.Infinity, LayerMask.GetMask("Interactable")))
         {
-            // If interactable is within range
-            if (hit.distance < pointerDistance)
+            if (hit.distance < pointerDistance) // If interactable is within range
+
             {
                 if (pointingAtInteractable == null)
                 {
                     pointingAtInteractable = hit.collider;
-                    pointingAtInteractable.GetComponent<Highlightable>().Highlight();
+                    pointingAtInteractable.GetComponentInParent<Highlightable>().Highlight();
+
                 }
+
                 // If you directly switched from interactable- to interactable without pointing at 'nothing'
                 else if (pointingAtInteractable.GetInstanceID() != hit.collider.GetInstanceID())
                 {
-                    pointingAtInteractable.GetComponent<Highlightable>().UnHighlight();
+                    pointingAtInteractable.GetComponentInParent<Highlightable>().UnHighlight();
                     pointingAtInteractable = null;
-                }
-                // PUT EVERYTHING HERE THAT SHOULD HAPPEN IF INTERACTING WITH INTERACTABLE
-                if (input.triggerPressed)
-                {
-                    print("triggered!");
                 }
             }
             else
@@ -88,8 +112,7 @@ public class fingerRaycast : MonoBehaviour
     {
         if (pointingAtInteractable != null)
         {
-            pointingAtInteractable.GetComponent<Highlightable>().UnHighlight();
+            pointingAtInteractable.GetComponentInParent<Highlightable>().UnHighlight();
         }
     }
-
 }

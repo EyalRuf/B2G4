@@ -6,26 +6,26 @@ public class Highlightable : MonoBehaviour
 {
     private Material objectMaterial;
     private Color originalColor;
-    private Outline outline;
-
     public Color highlightColor = Color.yellow;
+    private Outline outline;
 
     private void Awake()
     {
         outline = GetComponent<Outline>();
-        objectMaterial = GetComponent<Renderer>().material;
+        objectMaterial = GetComponentInChildren<Renderer>().material;
         originalColor = objectMaterial.color;
     }
 
     public void Highlight()
     {
-/*        objectMaterial.color = highlightColor;
-*/        outline.enabled = true;
+        outline.enabled = true;
+        objectMaterial.color = highlightColor;
+
     }
     public void UnHighlight()
     {
-/*        objectMaterial.color = originalColor;
-*/        outline.enabled = false;
+        outline.enabled = false;
 
+        objectMaterial.color = originalColor;
     }
 }
