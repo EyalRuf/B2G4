@@ -113,11 +113,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean OpenDiagnostics
+        public virtual SteamVR_Action_Boolean LeftHandY
         {
             get
             {
-                return SteamVR_Actions.default_OpenDiagnostics;
+                return SteamVR_Actions.default_LeftHandY;
             }
         }
         

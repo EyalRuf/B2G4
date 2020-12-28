@@ -5386,7 +5386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LeftHandY:
-    actionPath: /actions/default/in/OpenDiagnostics
+    actionPath: /actions/default/in/LeftHandY
     needsReinit: 0
 --- !u!1 &1854067918
 GameObject:
