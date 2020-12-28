@@ -5,7 +5,7 @@ public class EmptyHands : MonoBehaviour, I_InteractableFinder
 {
     public ToolInteractionRaycast tRaycast;
 
-    public Highlightable FindInteractble()
+    public Highlightable FindInteractable()
     {
         return tRaycast.PerformRaycast();
     }
