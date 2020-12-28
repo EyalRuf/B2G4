@@ -23,7 +23,8 @@ public class Tool : Highlightable, I_InteractableFinder
             transform.rotation = ogTransform.rotation;
             transform.position = Vector3.Lerp(transform.position, ogTransform.position, posLerpScale);
 
-            if (Vector3.Distance(transform.position, ogTransform.position) < 0.1f) {
+            if (Vector3.Distance(transform.position, ogTransform.position) < 0.1f)
+            {
                 transform.position = ogTransform.position;
                 isFloatingBackToOriginalPos = false;
                 rb.isKinematic = false;
@@ -31,12 +32,12 @@ public class Tool : Highlightable, I_InteractableFinder
         }
     }
 
-    public Highlightable FindInteractble()
+    public Highlightable FindInteractable()
     {
         return tRaycast.PerformRaycast();
     }
 
-    public virtual void Pickup ()
+    public virtual void Pickup()
     {
         UnHighlight();
         rb.isKinematic = true;
@@ -44,7 +45,7 @@ public class Tool : Highlightable, I_InteractableFinder
         gameObject.layer = pickedUpLayer;
     }
 
-    public virtual void Putdown ()
+    public virtual void Putdown()
     {
         tRaycast.gameObject.SetActive(false);
         transform.parent = originalParent;
