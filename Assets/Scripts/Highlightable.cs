@@ -6,12 +6,12 @@ public class Highlightable : MonoBehaviour
 {
     public Outline outline;
 
-    public void Highlight()
+    public virtual void Highlight()
     {
         outline.enabled = true;
 
     }
-    public void UnHighlight()
+    public virtual void UnHighlight()
     {
         outline.enabled = false;
     }

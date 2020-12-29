@@ -16,7 +16,6 @@ public class PlayerToolController : MonoBehaviour
     public Hand hand;
     public Transform toolAttachPoint;
 
-    // Update is called once per frame
     void Update()
     {
         I_InteractableFinder currIF = emptyHandsTool;
@@ -32,15 +31,17 @@ public class PlayerToolController : MonoBehaviour
         {
             if (!isHoldingTool) // I am not holding a tool
             {
-                    // Is this hovered object a tool
-                    if (hoveredObj.GetType() == typeof(Tool))
-                    {
-                        PickUpTool((Tool) hoveredObj);
-                    } else // Looking at a non-tool
-                    {
-                        InteractWithHoveredObj(hoveredObj, null);
-                    }
-            } else
+                // Is this hovered object a tool
+                if (hoveredObj.GetType() == typeof(Tool))
+                {
+                    PickUpTool((Tool)hoveredObj);
+                }
+                else // Looking at a non-tool
+                {
+                    InteractWithHoveredObj(hoveredObj, null);
+                }
+            }
+            else
             {
                 InteractWithHoveredObj(hoveredObj, heldTool);
             }
@@ -52,20 +53,21 @@ public class PlayerToolController : MonoBehaviour
             if (isHoldingTool)
             {
                 DropDownTool();
-            // Not holding a tool and i'm hovering over a tool
-            } else if (hoveredObj != null && hoveredObj.GetType() == typeof(Tool)) 
+                // Not holding a tool and i'm hovering over a tool
+            }
+            else if (hoveredObj != null && hoveredObj.GetType() == typeof(Tool))
             {
                 PickUpTool((Tool)hoveredObj);
-            } 
+            }
         }
     }
 
     void FindToolInteractables(I_InteractableFinder iFinder)
     {
-        hoveredObj = iFinder.FindInteractble();
+        hoveredObj = iFinder.FindInteractable();
     }
 
-    void PickUpTool (Tool t)
+    void PickUpTool(Tool t)
     {
         emptyHandsTool.DeactivateHands(); // Deactivate empty hands tool
 
@@ -79,7 +81,7 @@ public class PlayerToolController : MonoBehaviour
         isHoldingTool = true;
     }
 
-    void DropDownTool ()
+    void DropDownTool()
     {
         // Detach, put down and deactivate old tool
         heldTool.Putdown();
@@ -92,7 +94,7 @@ public class PlayerToolController : MonoBehaviour
         emptyHandsTool.ActivateHands();
     }
 
-    void InteractWithHoveredObj (Highlightable hoveredObj, Tool toolUsed)
+    void InteractWithHoveredObj(Highlightable hoveredObj, Tool toolUsed)
     {
         hoveredObj.Interact(toolUsed);
     }
