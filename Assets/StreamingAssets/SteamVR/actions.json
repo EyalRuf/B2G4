@@ -54,7 +54,7 @@
       "type": "vector2"
     },
     {
-      "name": "/actions/default/in/LeftHandY",
+      "name": "/actions/default/in/UserDiagnosticsInterface",
       "type": "boolean"
     },
     {
