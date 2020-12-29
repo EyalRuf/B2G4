@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - selection
+  - Tools
+  - projectile
+  - FxTemporaire
+  - Tool
   layers:
   - Default
   - TransparentFX
@@ -14,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
-  - 
-  - 
+  - Player
+  - InteractableEmptyHand
+  - InteractableTool
   - 
   - 
   - 
