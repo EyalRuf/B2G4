@@ -10,8 +10,8 @@ public class PlayerToolController : MonoBehaviour
     public bool isHoldingTool;
     public Highlightable hoveredObj; // Interactable object you're currently looking at
 
-    public SteamVR_Action_Boolean trigger;
-    public SteamVR_Action_Boolean grip;
+    public SteamVR_Action_Boolean interactBtn;
+    public SteamVR_Action_Boolean pickUpBtn;
 
     public Hand hand;
     public Transform toolAttachPoint;
@@ -27,7 +27,7 @@ public class PlayerToolController : MonoBehaviour
         FindToolInteractables(currIF);
 
         // Interact btn pressed & we're looking at an interactable
-        if (trigger.stateDown && hoveredObj != null)
+        if (interactBtn.stateDown && hoveredObj != null)
         {
             if (!isHoldingTool) // I am not holding a tool
             {
@@ -48,7 +48,7 @@ public class PlayerToolController : MonoBehaviour
         }
 
         // Pick up / Put down btn presed
-        if (grip.stateDown)
+        if (pickUpBtn.stateDown)
         {
             if (isHoldingTool)
             {

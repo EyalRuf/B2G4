@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10117787, g: 0.2880348, b: 0.5371327, a: 1}
+  m_IndirectSpecularColor: {r: 0.00030257687, g: 0.004491356, b: 0.020074712, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4501,7 +4501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768265018}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 6.25, z: 0}
+  m_LocalPosition: {x: 3.25, y: 6.25, z: -5.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5365,11 +5365,11 @@ MonoBehaviour:
   emptyHandsTool: {fileID: 2020439973}
   isHoldingTool: 0
   hoveredObj: {fileID: 0}
-  trigger:
-    actionPath: /actions/default/in/GrabPinch
+  interactBtn:
+    actionPath: 
     needsReinit: 0
-  grip:
-    actionPath: /actions/default/in/GrabGrip
+  pickUpBtn:
+    actionPath: 
     needsReinit: 0
   hand: {fileID: 1848548756}
   toolAttachPoint: {fileID: 1554130479}
@@ -6835,7 +6835,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: c49c44a66e042cd4da7e24ebb7c6a622, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
