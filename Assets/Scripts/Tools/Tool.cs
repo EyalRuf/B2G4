@@ -44,9 +44,4 @@ public class Tool : Pickupable, I_InteractableFinder
         tRaycast.gameObject.SetActive(false);
         isFloatingBackToOriginalPos = true;
     }
-
-    public override void Interact(Tool t)
-    {
-        Debug.Log("Interacting as a tool");
-    }
 }

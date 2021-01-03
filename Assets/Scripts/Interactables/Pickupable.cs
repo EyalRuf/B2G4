@@ -6,6 +6,7 @@ public class Pickupable : Highlightable
     public Rigidbody rb;
     public Transform originalParent;
     public bool isLockedInPlace;
+    public bool isBeingHeld;
 
     public int pickedUpLayer;
     public int interactableLayer;
@@ -15,12 +16,15 @@ public class Pickupable : Highlightable
         UnHighlight();
         rb.isKinematic = true;
         gameObject.layer = pickedUpLayer;
+        isBeingHeld = true;
     }
 
     public virtual void Putdown()
     {
         transform.parent = originalParent;
+        rb.isKinematic = false;
         gameObject.layer = interactableLayer;
+        isBeingHeld = false;
     }
 
     public override void Interact(Tool t)

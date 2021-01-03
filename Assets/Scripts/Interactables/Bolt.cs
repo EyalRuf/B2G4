@@ -13,10 +13,10 @@ public class Bolt : Highlightable
         if (canBolt)
         {
             isClosed = !isClosed;
-            boltClosedGO.SetActive(true);
-            boltOpenGO.SetActive(false);
+            boltClosedGO.SetActive(!boltClosedGO.activeSelf);
+            boltOpenGO.SetActive(!boltOpenGO.activeSelf);
 
-            SendMessageUpwards("UseBolt", isClosed);
+            SendMessageUpwards("UseBolt");
         }
     }
 }

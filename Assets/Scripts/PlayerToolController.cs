@@ -19,7 +19,7 @@ public class PlayerToolController : MonoBehaviour
 
     void Update()
     {
-        bool isHeldObjATool = heldObj != null && (heldObj.GetType() == typeof(Tool));
+        bool isHeldObjATool = heldObj != null && heldObj is Tool;
 
         I_InteractableFinder currIF = emptyHandsTool;
         if (isHoldingObj)
@@ -30,27 +30,14 @@ public class PlayerToolController : MonoBehaviour
                 currIF = (Tool)heldObj;
             }
         }
-        FindToolInteractables(currIF);
+        FindInteractable(currIF);
 
-        if (!isHoldingObj || isHeldObjATool)
+        if (!isHoldingObj || isHeldObjATool) // If I'm holding something that is a tool, or I am not holding anything
         {
             // Interact btn pressed & we're looking at an interactable
-            if (trigger.stateDown && hoveredObj != null)
+            if (interactBtn.stateDown && hoveredObj != null)
             {
-                if (!isHoldingObj) // I am not holding a tool
-                {
-                        // Is this hovered object a pickupable
-                        if (hoveredObj.GetType() == typeof(Pickupable))
-                        {
-                            PickUpObj((Pickupable)hoveredObj);
-                        } else // Looking at a non-tool
-                        {
-                            InteractWithHoveredObj(hoveredObj, null);
-                        }
-                } else
-                {
-                    InteractWithHoveredObj(hoveredObj, (Tool)heldObj);
-                }
+                InteractWithHoveredObj(hoveredObj, (Tool)heldObj);
             }
         }
 
@@ -61,22 +48,22 @@ public class PlayerToolController : MonoBehaviour
             {
                 DropDownObj();
             // Not holding a tool and i'm hovering over a tool
-            } else if (hoveredObj != null && (hoveredObj.GetType() == typeof(Pickupable) || hoveredObj.GetType() == typeof(Tool))) 
+            } else if (hoveredObj != null && hoveredObj is Pickupable) 
             {
                 PickUpObj((Pickupable)hoveredObj);
             } 
         }
     }
 
-    void FindToolInteractables(I_InteractableFinder iFinder)
+    void FindInteractable(I_InteractableFinder iFinder)
     {
         if (iFinder != null)
-            hoveredObj = iFinder.FindInteractble();
+            hoveredObj = iFinder.FindInteractable();
         else
             hoveredObj = null;
     }
 
-    void PickUpObj (Pickupable pu)
+    public void PickUpObj (Pickupable pu)
     {
         if (pu.isLockedInPlace)
         {

@@ -4,33 +4,22 @@ using UnityEngine;
 
 public class WaterSystem : MonoBehaviour
 {
-    public Bolt boltToFilter;
-    public Bolt boltToWater;
+    public BoltSystem filterBoltSystem;
+    public BoltSystem waterBoltSystem;
 
-    public Pickupable filter;
-    public Pickupable waterCannister;
-
-    public bool isFilterLockedInPlace;
-    public bool isWaterCannisterLockedInPlace;
-
-    public Transform filterAnchor;
-    public Transform waterCannisterAnchor;
-    public float attachmentDistance;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public MeshRenderer wsMachineMR;
+    public Material functionalMat;
+    public Material notFunctionalMat;
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void UnboltFilterBolt ()
-    {
-
+        if (filterBoltSystem.IsSystemFunctional() && waterBoltSystem.IsSystemFunctional())
+        {
+            wsMachineMR.material = functionalMat;
+        } else
+        {
+            wsMachineMR.material = notFunctionalMat;
+        }
     }
 }
