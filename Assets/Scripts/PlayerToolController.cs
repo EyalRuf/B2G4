@@ -5,9 +5,10 @@ using Valve.VR.InteractionSystem;
 
 public class PlayerToolController : MonoBehaviour
 {
-    public Tool heldTool; // The tool that you're currently holding 
+    //public Tool heldTool; // The tool that you're currently holding 
+    public Pickupable heldObj;
     public EmptyHands emptyHandsTool;
-    public bool isHoldingTool;
+    public bool isHoldingObj;
     public Highlightable hoveredObj; // Interactable object you're currently looking at
 
     public SteamVR_Action_Boolean trigger;
@@ -19,74 +20,91 @@ public class PlayerToolController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        I_InteractableFinder currIF = emptyHandsTool;
-        if (isHoldingTool)
-        {
-            currIF = heldTool;
-        }
+        bool isHeldObjATool = heldObj != null && (heldObj.GetType() == typeof(Tool));
 
+        I_InteractableFinder currIF = emptyHandsTool;
+        if (isHoldingObj)
+        {
+            currIF = null;
+            if (isHeldObjATool)
+            {
+                currIF = (Tool)heldObj;
+            }
+        }
         FindToolInteractables(currIF);
 
-        // Interact btn pressed & we're looking at an interactable
-        if (trigger.stateDown && hoveredObj != null)
+        if (!isHoldingObj || isHeldObjATool)
         {
-            if (!isHoldingTool) // I am not holding a tool
+            // Interact btn pressed & we're looking at an interactable
+            if (trigger.stateDown && hoveredObj != null)
             {
-                    // Is this hovered object a tool
-                    if (hoveredObj.GetType() == typeof(Tool))
-                    {
-                        PickUpTool((Tool) hoveredObj);
-                    } else // Looking at a non-tool
-                    {
-                        InteractWithHoveredObj(hoveredObj, null);
-                    }
-            } else
-            {
-                InteractWithHoveredObj(hoveredObj, heldTool);
+                if (!isHoldingObj) // I am not holding a tool
+                {
+                        // Is this hovered object a pickupable
+                        if (hoveredObj.GetType() == typeof(Pickupable))
+                        {
+                            PickUpObj((Pickupable)hoveredObj);
+                        } else // Looking at a non-tool
+                        {
+                            InteractWithHoveredObj(hoveredObj, null);
+                        }
+                } else
+                {
+                    InteractWithHoveredObj(hoveredObj, (Tool)heldObj);
+                }
             }
         }
 
         // Pick up / Put down btn presed
         if (grip.stateDown)
         {
-            if (isHoldingTool)
+            if (isHoldingObj)
             {
-                DropDownTool();
+                DropDownObj();
             // Not holding a tool and i'm hovering over a tool
-            } else if (hoveredObj != null && hoveredObj.GetType() == typeof(Tool)) 
+            } else if (hoveredObj != null && (hoveredObj.GetType() == typeof(Pickupable) || hoveredObj.GetType() == typeof(Tool))) 
             {
-                PickUpTool((Tool)hoveredObj);
+                PickUpObj((Pickupable)hoveredObj);
             } 
         }
     }
 
     void FindToolInteractables(I_InteractableFinder iFinder)
     {
-        hoveredObj = iFinder.FindInteractble();
+        if (iFinder != null)
+            hoveredObj = iFinder.FindInteractble();
+        else
+            hoveredObj = null;
     }
 
-    void PickUpTool (Tool t)
+    void PickUpObj (Pickupable pu)
     {
-        emptyHandsTool.DeactivateHands(); // Deactivate empty hands tool
+        if (pu.isLockedInPlace)
+        {
+            // Show some indication that it is locked
+        } else
+        {
+            emptyHandsTool.DeactivateHands(); // Deactivate empty hands tool
 
-        // Pick up, attach, and activate new tool
-        heldTool = t;
-        heldTool.transform.position = toolAttachPoint.position;
-        heldTool.transform.rotation = toolAttachPoint.rotation;
-        hand.AttachObject(heldTool.gameObject, GrabTypes.Grip, Hand.AttachmentFlags.ParentToHand);
-        heldTool.Pickup();
+            // Pick up, attach, and activate new tool
+            heldObj = pu;
+            heldObj.transform.position = toolAttachPoint.position;
+            heldObj.transform.rotation = toolAttachPoint.rotation;
+            hand.AttachObject(heldObj.gameObject, GrabTypes.Grip, Hand.AttachmentFlags.ParentToHand);
+            heldObj.Pickup();
 
-        isHoldingTool = true;
+            isHoldingObj = true;
+        }
     }
 
-    void DropDownTool ()
+    void DropDownObj ()
     {
         // Detach, put down and deactivate old tool
-        heldTool.Putdown();
-        hand.DetachObject(heldTool.gameObject);
+        heldObj.Putdown();
+        hand.DetachObject(heldObj.gameObject);
 
-        heldTool = null;
-        isHoldingTool = false;
+        heldObj = null;
+        isHoldingObj = false;
 
         // Activate hands again
         emptyHandsTool.ActivateHands();

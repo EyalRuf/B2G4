@@ -3,14 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
-public class Tool : Highlightable, I_InteractableFinder
+public class Tool : Pickupable, I_InteractableFinder
 {
-    public Rigidbody rb;
-    public Transform originalParent;
     public ToolInteractionRaycast tRaycast;
-
-    public int pickedUpLayer;
-    public int interactableLayer;
 
     public Transform ogTransform;
     public bool isFloatingBackToOriginalPos;
@@ -36,20 +31,16 @@ public class Tool : Highlightable, I_InteractableFinder
         return tRaycast.PerformRaycast();
     }
 
-    public virtual void Pickup ()
+    public override void Pickup ()
     {
-        UnHighlight();
-        rb.isKinematic = true;
+        base.Pickup();
         tRaycast.gameObject.SetActive(true);
-        gameObject.layer = pickedUpLayer;
     }
 
-    public virtual void Putdown ()
+    public override void Putdown ()
     {
+        base.Putdown();
         tRaycast.gameObject.SetActive(false);
-        transform.parent = originalParent;
-        gameObject.layer = interactableLayer;
-
         isFloatingBackToOriginalPos = true;
     }
 
