@@ -18,7 +18,8 @@ public class Tool : Pickupable, I_InteractableFinder
             transform.rotation = ogTransform.rotation;
             transform.position = Vector3.Lerp(transform.position, ogTransform.position, posLerpScale);
 
-            if (Vector3.Distance(transform.position, ogTransform.position) < 0.1f) {
+            if (Vector3.Distance(transform.position, ogTransform.position) < 0.1f)
+            {
                 transform.position = ogTransform.position;
                 isFloatingBackToOriginalPos = false;
                 rb.isKinematic = false;
@@ -26,7 +27,7 @@ public class Tool : Pickupable, I_InteractableFinder
         }
     }
 
-    public Highlightable FindInteractble()
+    public Highlightable FindInteractable()
     {
         return tRaycast.PerformRaycast();
     }

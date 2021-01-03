@@ -11,13 +11,12 @@ public class PlayerToolController : MonoBehaviour
     public bool isHoldingObj;
     public Highlightable hoveredObj; // Interactable object you're currently looking at
 
-    public SteamVR_Action_Boolean trigger;
-    public SteamVR_Action_Boolean grip;
+    public SteamVR_Action_Boolean interactBtn;
+    public SteamVR_Action_Boolean pickUpBtn;
 
     public Hand hand;
     public Transform toolAttachPoint;
 
-    // Update is called once per frame
     void Update()
     {
         bool isHeldObjATool = heldObj != null && (heldObj.GetType() == typeof(Tool));
@@ -56,7 +55,7 @@ public class PlayerToolController : MonoBehaviour
         }
 
         // Pick up / Put down btn presed
-        if (grip.stateDown)
+        if (pickUpBtn.stateDown)
         {
             if (isHoldingObj)
             {
@@ -110,7 +109,7 @@ public class PlayerToolController : MonoBehaviour
         emptyHandsTool.ActivateHands();
     }
 
-    void InteractWithHoveredObj (Highlightable hoveredObj, Tool toolUsed)
+    void InteractWithHoveredObj(Highlightable hoveredObj, Tool toolUsed)
     {
         hoveredObj.Interact(toolUsed);
     }
