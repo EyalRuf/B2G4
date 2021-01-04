@@ -4,6 +4,7 @@ using System.Collections;
 public class BoltSystemObj : Pickupable
 {
     public BoltSystem bSystem;
+    public MeshRenderer mr;
     public bool isObjectFunctional;
 
     // Update is called once per frame
@@ -15,11 +16,11 @@ public class BoltSystemObj : Pickupable
             // Only if in range 
             if (Vector3.Distance(transform.position, bSystem.anchorTransform.position) <= bSystem.anchoringDistance)
             {
-                transform.position = bSystem.anchorTransform.position;
-                transform.rotation = bSystem.anchorTransform.rotation;
+                mr.enabled = false;
                 bSystem.ObjectHovering();
             } else
             {
+                mr.enabled = true;
                 bSystem.ObjectNoLongerHovering();
             }
         }

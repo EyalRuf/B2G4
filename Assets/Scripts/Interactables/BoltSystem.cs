@@ -8,6 +8,7 @@ public class BoltSystem : MonoBehaviour
 
     public Transform anchorTransform;
     public GameObject objectPlaceholder;
+    public GameObject objectAnchor;
     public float anchoringDistance;
 
     public void UseBolt()
@@ -32,13 +33,19 @@ public class BoltSystem : MonoBehaviour
     public void ObjectNoLongerHovering()
     {
         if (attachedObj == null)
+        {
+            objectAnchor.SetActive(false);
             objectPlaceholder.SetActive(true);
+        }
     }
 
     public void ObjectHovering ()
     {
         if (attachedObj == null)
+        {
+            objectAnchor.SetActive(true);
             objectPlaceholder.SetActive(false);
+        }
     }
 
     public bool IsSystemFunctional ()
