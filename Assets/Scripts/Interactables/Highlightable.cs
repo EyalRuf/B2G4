@@ -9,7 +9,6 @@ public class Highlightable : MonoBehaviour
     public virtual void Highlight()
     {
         outline.enabled = true;
-
     }
     public virtual void UnHighlight()
     {
