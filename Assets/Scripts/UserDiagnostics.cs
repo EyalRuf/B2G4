@@ -6,12 +6,13 @@ using Valve.VR;
 public class UserDiagnostics : MonoBehaviour
 {
     public SteamVR_Action_Boolean LeftHandY;
+    public GameObject diaInterface;
 
     private void Update()
     {
         if (LeftHandY.stateDown)
         {
-            print("Pressed Y");
+            diaInterface.SetActive(!diaInterface.activeSelf);
         }
     }
 }
