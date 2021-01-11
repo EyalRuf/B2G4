@@ -13,7 +13,7 @@ public class Tool : Pickupable, I_InteractableFinder
 
     public void Update()
     {
-        if (isFloatingBackToOriginalPos)
+        /*if (isFloatingBackToOriginalPos)
         {
             transform.rotation = ogTransform.rotation;
             transform.position = Vector3.Lerp(transform.position, ogTransform.position, posLerpScale);
@@ -24,7 +24,7 @@ public class Tool : Pickupable, I_InteractableFinder
                 isFloatingBackToOriginalPos = false;
                 rb.isKinematic = false;
             }
-        }
+        }*/
     }
 
     public Highlightable FindInteractable()
@@ -32,13 +32,13 @@ public class Tool : Pickupable, I_InteractableFinder
         return tRaycast.PerformRaycast();
     }
 
-    public override void Pickup ()
+    public override void Pickup()
     {
         base.Pickup();
         tRaycast.gameObject.SetActive(true);
     }
 
-    public override void Putdown ()
+    public override void Putdown()
     {
         base.Putdown();
         tRaycast.gameObject.SetActive(false);
