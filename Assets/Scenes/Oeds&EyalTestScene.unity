@@ -7084,7 +7084,6 @@ MonoBehaviour:
   rayDistance: 2
   rayIdleColor: {r: 0.19215688, g: 0.32941177, b: 1, a: 0.5882353}
   rayInteractColor: {r: 0, g: 1, b: 0.85274386, a: 0.5882353}
-  rayDirection: {fileID: 1842072752}
   rayLineRenderer: {fileID: 1842072753}
   raycastMask:
     serializedVersion: 2
@@ -9530,7 +9529,6 @@ MonoBehaviour:
   rayDistance: 2
   rayIdleColor: {r: 0.059344348, g: 0.5377358, b: 0, a: 0.5882353}
   rayInteractColor: {r: 0.11779833, g: 1, b: 0, a: 0.5882353}
-  rayDirection: {fileID: 2139705448}
   rayLineRenderer: {fileID: 2139705447}
   raycastMask:
     serializedVersion: 2

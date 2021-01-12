@@ -21,39 +21,34 @@ public class Pickupable : Highlightable
     {
         estimator = GetComponent<VelocityEstimator>();
     }
-    public virtual void Pickup()
-    {
-        UnHighlight();
-        rb.isKinematic = true;
-        gameObject.layer = pickedUpLayer;
-        isBeingHeld = true;
-    }
-
-    public virtual void Putdown()
-    {
-        transform.parent = originalParent;
-        rb.isKinematic = false;
-        gameObject.layer = interactableLayer;
-        isBeingHeld = false;
-    }
 
     public override void Interact(Tool t)
     {
         Debug.Log("Interacting as a pickupable");
     }
 
-    protected virtual void OnAttachedToHand(Hand hand)
+    public virtual void OnAttachedToHand(Hand hand)
     {
+        UnHighlight();
+        rb.isKinematic = true;
+        gameObject.layer = pickedUpLayer;
+        isBeingHeld = true;
+
+        //Throwable
         estimator.BeginEstimatingVelocity();
     }
 
-    protected virtual void OnDetachedFromHand(Hand hand)
+    public virtual void OnDetachedFromHand(Hand hand)
     {
+        transform.parent = originalParent;
+        rb.isKinematic = false;
+        gameObject.layer = interactableLayer;
+        isBeingHeld = false;
+
+        // Throwable
         estimator.FinishEstimatingVelocity();
         velocity = estimator.GetVelocityEstimate();
         angularVelocity = estimator.GetAngularVelocityEstimate();
-        print(velocity);
-        print(angularVelocity);
         GetComponent<Rigidbody>().AddForce(velocity * 100, ForceMode.Acceleration);
         GetComponent<Rigidbody>().angularVelocity = angularVelocity;
 

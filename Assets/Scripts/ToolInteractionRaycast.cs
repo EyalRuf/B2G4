@@ -10,7 +10,6 @@ public class ToolInteractionRaycast : MonoBehaviour
     private Vector3 rayEndpoint;
     public Color rayIdleColor;
     public Color rayInteractColor;
-    public Transform rayDirection;
     public LineRenderer rayLineRenderer;
 
     public LayerMask raycastMask;
@@ -27,7 +26,8 @@ public class ToolInteractionRaycast : MonoBehaviour
         Highlightable highlightable = null;
 
         RaycastHit hit;
-        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out hit, rayDistance, raycastMask))
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, rayDistance, raycastMask))
         {
             highlightable = hit.collider.GetComponent<Highlightable>();
 
@@ -43,16 +43,18 @@ public class ToolInteractionRaycast : MonoBehaviour
                 lastHL.Highlight();
             }
 
-        } else if (lastHL != null)
+            // Update Line renderer according to new highlightable
+        }
+
+        else if (lastHL != null)
         {
             lastHL.UnHighlight();
             lastHL = null;
         }
 
-        // Update Line renderer according to new highlightable
         UpdateLineRenderer(highlightable);
-
         return highlightable;
+
     }
 
     private void UpdateLineRenderer(Highlightable hl)
@@ -65,11 +67,11 @@ public class ToolInteractionRaycast : MonoBehaviour
         }
         else
         {
-            rayEndpoint = rayDirection.position + rayDirection.TransformDirection(Vector3.forward) * rayDistance;
+            rayEndpoint = transform.position + base.transform.forward * rayDistance;
             rayLineRenderer.material.color = rayIdleColor; // Idle line color
         }
 
-        rayLineRenderer.SetPosition(0, rayDirection.position); // Line StartPos
+        rayLineRenderer.SetPosition(0, transform.position); // Line StartPos
         rayLineRenderer.SetPosition(1, rayEndpoint); // Line StartPos
     }
 }
