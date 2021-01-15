@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17355579, g: 0.2085047, b: 0.25091773, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -725,7 +725,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -203.646, y: -107.29599, z: -12.440979}
 --- !u!1 &210924790
 GameObject:
@@ -2762,7 +2762,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -190.773, y: -4.1690063, z: 5.169998}
 --- !u!1 &723961500
 GameObject:
@@ -3179,7 +3179,6 @@ MonoBehaviour:
   rayDistance: 2
   rayIdleColor: {r: 1, g: 0.38023823, b: 0.19215685, a: 0.5882353}
   rayInteractColor: {r: 1, g: 0, b: 0.009791374, a: 0.5882353}
-  rayDirection: {fileID: 989159969}
   rayLineRenderer: {fileID: 989159970}
   raycastMask:
     serializedVersion: 2
@@ -7068,7 +7067,6 @@ MonoBehaviour:
   rayDistance: 2
   rayIdleColor: {r: 0.19215688, g: 0.32941177, b: 1, a: 0.5882353}
   rayInteractColor: {r: 0, g: 1, b: 0.85274386, a: 0.5882353}
-  rayDirection: {fileID: 1842072752}
   rayLineRenderer: {fileID: 1842072753}
   raycastMask:
     serializedVersion: 2
@@ -9971,7 +9969,6 @@ MonoBehaviour:
   rayDistance: 2
   rayIdleColor: {r: 0.059344348, g: 0.5377358, b: 0, a: 0.5882353}
   rayInteractColor: {r: 0.11779833, g: 1, b: 0, a: 0.5882353}
-  rayDirection: {fileID: 2139705448}
   rayLineRenderer: {fileID: 2139705447}
   raycastMask:
     serializedVersion: 2
