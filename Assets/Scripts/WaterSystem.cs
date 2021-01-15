@@ -6,20 +6,13 @@ public class WaterSystem : MonoBehaviour
 {
     public BoltSystem filterBoltSystem;
     public BoltSystem waterBoltSystem;
-
-    public MeshRenderer wsMachineMR;
-    public Material functionalMat;
-    public Material notFunctionalMat;
+    public UserDiagnostics UD;
 
     // Update is called once per frame
     void Update()
     {
-        if (filterBoltSystem.IsSystemFunctional() && waterBoltSystem.IsSystemFunctional())
-        {
-            wsMachineMR.material = functionalMat;
-        } else
-        {
-            wsMachineMR.material = notFunctionalMat;
-        }
+        UD.isFilterGood = filterBoltSystem.IsSystemFunctional();
+        UD.isWaterGood = waterBoltSystem.IsSystemFunctional();
+        UD.isHydrolicSystemBuilt = filterBoltSystem.IsSystemBuilt() && waterBoltSystem.IsSystemBuilt();
     }
 }
