@@ -27,6 +27,7 @@ public class BoltSystem : MonoBehaviour
     {
         attachedObj = obj;
         bolt.canBolt = true;
+        objectAnchor.SetActive(false);
         objectPlaceholder.SetActive(false);
     }
 
@@ -48,8 +49,13 @@ public class BoltSystem : MonoBehaviour
         }
     }
 
+    public bool IsSystemBuilt()
+    {
+        return attachedObj != null && bolt.isClosed;
+    }
+
     public bool IsSystemFunctional ()
     {
-        return attachedObj != null && attachedObj.isObjectFunctional != false;
+        return this.IsSystemBuilt() && attachedObj.isObjectFunctional;
     }
 }

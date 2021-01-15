@@ -42,6 +42,7 @@ public class BoltSystemObj : Pickupable
         // Only if in range & system doesn't have another filter connected already
         if (bSystem.attachedObj == null && Vector3.Distance(transform.position, bSystem.anchorTransform.position) <= bSystem.anchoringDistance)
         {
+            mr.enabled = true;
             transform.parent = bSystem.transform;
             transform.position = bSystem.anchorTransform.position;
             transform.rotation = bSystem.anchorTransform.rotation;
