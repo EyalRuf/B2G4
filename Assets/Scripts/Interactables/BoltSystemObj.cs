@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Valve.VR.InteractionSystem;
 
 public class BoltSystemObj : Pickupable
 {
@@ -11,14 +12,15 @@ public class BoltSystemObj : Pickupable
     void Update()
     {
         // Player holding it && system is missing a filter
-        if (isBeingHeld && bSystem.attachedObj == null) 
+        if (isBeingHeld && bSystem.attachedObj == null)
         {
             // Only if in range 
             if (Vector3.Distance(transform.position, bSystem.anchorTransform.position) <= bSystem.anchoringDistance)
             {
                 mr.enabled = false;
                 bSystem.ObjectHovering();
-            } else
+            }
+            else
             {
                 mr.enabled = true;
                 bSystem.ObjectNoLongerHovering();
@@ -26,18 +28,19 @@ public class BoltSystemObj : Pickupable
         }
     }
 
-    public override void Pickup()
+    public override void OnAttachedToHand(Hand hand)
     {
-        base.Pickup();
+        base.OnAttachedToHand(hand);
+
         if (bSystem.attachedObj != null && GetInstanceID() == bSystem.attachedObj.GetInstanceID())
         {
             bSystem.DetachObj();
         }
     }
 
-    public override void Putdown()
+    public override void OnDetachedFromHand(Hand hand)
     {
-        base.Putdown();
+        base.OnDetachedFromHand(hand);
 
         // Only if in range & system doesn't have another filter connected already
         if (bSystem.attachedObj == null && Vector3.Distance(transform.position, bSystem.anchorTransform.position) <= bSystem.anchoringDistance)

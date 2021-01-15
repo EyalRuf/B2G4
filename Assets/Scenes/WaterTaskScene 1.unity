@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 88ada8378a32ef24dae84f6989041746,
+  m_LightingDataAsset: {fileID: 112000000, guid: 786fde1cc5608154fbb719c790f381cb,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -1007,7 +1007,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.1468e-41, z: 0, w: NaN}
+  m_BoundingSphereOverride: {x: 8.45e-43, y: 7.1e-44, z: 0, w: -1.0066682e+10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1023,7 +1023,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -203.646, y: -107.29599, z: -12.440979}
 --- !u!1 &210924790
 GameObject:
@@ -3697,7 +3697,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.1468e-41, z: 0, w: NaN}
+  m_BoundingSphereOverride: {x: 0, y: 3.8524e-41, z: 0, w: 0.0000006482005}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4874,7 +4874,6 @@ MonoBehaviour:
   rayDistance: 2
   rayIdleColor: {r: 1, g: 0.38023823, b: 0.19215685, a: 0.5882353}
   rayInteractColor: {r: 1, g: 0, b: 0.009791374, a: 0.5882353}
-  rayDirection: {fileID: 989159969}
   rayLineRenderer: {fileID: 989159970}
   raycastMask:
     serializedVersion: 2
@@ -9758,7 +9757,6 @@ MonoBehaviour:
   rayDistance: 2
   rayIdleColor: {r: 0.19215688, g: 0.32941177, b: 1, a: 0.5882353}
   rayInteractColor: {r: 0, g: 1, b: 0.85274386, a: 0.5882353}
-  rayDirection: {fileID: 1842072752}
   rayLineRenderer: {fileID: 1842072753}
   raycastMask:
     serializedVersion: 2
@@ -12362,7 +12360,7 @@ Transform:
   - {fileID: 723961504}
   - {fileID: 1542990097}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1993889276
 MeshCollider:
@@ -12955,7 +12953,6 @@ MonoBehaviour:
   rayDistance: 2
   rayIdleColor: {r: 0.059344348, g: 0.5377358, b: 0, a: 0.5882353}
   rayInteractColor: {r: 0.11779833, g: 1, b: 0, a: 0.5882353}
-  rayDirection: {fileID: 2139705448}
   rayLineRenderer: {fileID: 2139705447}
   raycastMask:
     serializedVersion: 2

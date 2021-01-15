@@ -47,11 +47,12 @@ public class PlayerToolController : MonoBehaviour
             if (isHoldingObj)
             {
                 DropDownObj();
-            // Not holding a tool and i'm hovering over a tool
-            } else if (hoveredObj != null && hoveredObj is Pickupable) 
+                // Not holding a tool and i'm hovering over a tool
+            }
+            else if (hoveredObj != null && hoveredObj is Pickupable)
             {
                 PickUpObj((Pickupable)hoveredObj);
-            } 
+            }
         }
     }
 
@@ -63,12 +64,13 @@ public class PlayerToolController : MonoBehaviour
             hoveredObj = null;
     }
 
-    public void PickUpObj (Pickupable pu)
+    public void PickUpObj(Pickupable pu)
     {
         if (pu.isLockedInPlace)
         {
             // Show some indication that it is locked
-        } else
+        }
+        else
         {
             emptyHandsTool.DeactivateHands(); // Deactivate empty hands tool
 
@@ -77,16 +79,14 @@ public class PlayerToolController : MonoBehaviour
             heldObj.transform.position = toolAttachPoint.position;
             heldObj.transform.rotation = toolAttachPoint.rotation;
             hand.AttachObject(heldObj.gameObject, GrabTypes.Grip, Hand.AttachmentFlags.ParentToHand);
-            heldObj.Pickup();
 
             isHoldingObj = true;
         }
     }
 
-    void DropDownObj ()
+    void DropDownObj()
     {
         // Detach, put down and deactivate old tool
-        heldObj.Putdown();
         hand.DetachObject(heldObj.gameObject);
 
         heldObj = null;
