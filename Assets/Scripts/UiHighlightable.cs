@@ -8,11 +8,12 @@ public class UiHighlightable : Highlightable
     public Button button;
     public Image image;
 
-    private Color mainColor = Color.white;
+    public Color mainColor;
+    public Color highlightedColor;
 
     public override void Highlight()
     {
-        image.color = Color.red;
+        image.color = highlightedColor;
     }
 
     public override void UnHighlight()
