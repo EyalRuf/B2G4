@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.17355579, g: 0.2085047, b: 0.25091773, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 88ada8378a32ef24dae84f6989041746,
+  m_LightingDataAsset: {fileID: 112000000, guid: 786fde1cc5608154fbb719c790f381cb,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -1007,7 +1007,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.1468e-41, z: 0, w: NaN}
+  m_BoundingSphereOverride: {x: 8.45e-43, y: 7.1e-44, z: 0, w: -1.0066682e+10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1023,7 +1023,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -203.646, y: -107.29599, z: -12.440979}
 --- !u!1 &210924790
 GameObject:
@@ -3697,7 +3697,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.1468e-41, z: 0, w: NaN}
+  m_BoundingSphereOverride: {x: 0, y: 3.8524e-41, z: 0, w: 0.0000006482005}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3713,7 +3713,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -190.773, y: -4.1690063, z: 5.169998}
 --- !u!1 &723961500
 GameObject:
@@ -12360,7 +12360,7 @@ Transform:
   - {fileID: 723961504}
   - {fileID: 1542990097}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1993889276
 MeshCollider:
