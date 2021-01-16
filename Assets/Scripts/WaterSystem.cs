@@ -8,7 +8,6 @@ public class WaterSystem : MonoBehaviour
     public BoltSystem waterBoltSystem;
     public UserDiagnostics UD;
 
-    // Update is called once per frame
     void Update()
     {
         UD.isFilterGood = filterBoltSystem.IsSystemFunctional();
