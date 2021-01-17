@@ -73,7 +73,7 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.7262371, g: 0.7304047, b: 0.9622642, a: 1}
+    value: {r: 0.83879924, g: 0.7681514, b: 0.6795426, a: 1}
   fastMode:
     overrideState: 1
     value: 0
@@ -118,11 +118,11 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   mode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   color:
-    overrideState: 0
-    value: {r: 0, g: 0, b: 0, a: 1}
+    overrideState: 1
+    value: {r: 0.018064946, g: 0.18867922, b: 0.002669984, a: 1}
   center:
     overrideState: 0
     value: {x: 0.5, y: 0.5}
