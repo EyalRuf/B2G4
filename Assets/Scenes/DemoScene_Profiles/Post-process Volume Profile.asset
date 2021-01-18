@@ -29,11 +29,11 @@ MonoBehaviour:
     overrideState: 0
     value: 8
   maximumMarchDistance:
-    overrideState: 0
-    value: 6.9
+    overrideState: 1
+    value: 1
   distanceFade:
     overrideState: 1
-    value: 0.303
+    value: 1
   vignette:
     overrideState: 0
     value: 1
@@ -55,13 +55,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 18.3
+    value: 13.5
   threshold:
     overrideState: 1
-    value: 1
+    value: 0.99
   softKnee:
     overrideState: 1
-    value: 0.352
+    value: 0.25
   clamp:
     overrideState: 0
     value: 65472
@@ -73,10 +73,10 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.7262371, g: 0.7304047, b: 0.9622642, a: 1}
+    value: {r: 1.035265, g: 1.035265, b: 1.035265, a: 1}
   fastMode:
     overrideState: 1
-    value: 0
+    value: 1
   dirtTexture:
     overrideState: 0
     value: {fileID: 0}
@@ -118,11 +118,11 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   mode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   color:
-    overrideState: 0
-    value: {r: 0, g: 0, b: 0, a: 1}
+    overrideState: 1
+    value: {r: 0.018064946, g: 0.18867922, b: 0.002669984, a: 1}
   center:
     overrideState: 0
     value: {x: 0.5, y: 0.5}
@@ -197,14 +197,14 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: -7.7
   tint:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 11.5
   colorFilter:
     overrideState: 1
-    value: {r: 1, g: 0.9352007, b: 0.8301887, a: 1}
+    value: {r: 1, g: 0.9200357, b: 0.8066038, a: 1}
   hueShift:
     overrideState: 0
     value: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: 1.5
+    value: 1.25
   contrast:
     overrideState: 1
     value: 15

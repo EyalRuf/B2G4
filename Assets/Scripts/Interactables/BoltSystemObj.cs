@@ -4,6 +4,7 @@ using Valve.VR.InteractionSystem;
 
 public class BoltSystemObj : Pickupable
 {
+    [Header("Bolt System Obj")]
     public BoltSystem bSystem;
     public MeshRenderer mr;
     public bool isObjectFunctional;
