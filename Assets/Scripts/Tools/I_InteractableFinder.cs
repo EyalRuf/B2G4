@@ -1,4 +1,4 @@
 ﻿interface I_InteractableFinder
 {
-    Highlightable FindInteractable();
+    Highlightable FindInteractable(bool showRay);
 }

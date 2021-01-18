@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Highlightable : MonoBehaviour
 {
+    [Header("Highlightable")]
     public Outline outline;
+    public Color highlightColor;
+
+    void Start()
+    {
+        outline.OutlineColor = highlightColor;
+    }
 
     public virtual void Highlight()
     {

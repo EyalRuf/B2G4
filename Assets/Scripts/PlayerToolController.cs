@@ -13,9 +13,11 @@ public class PlayerToolController : MonoBehaviour
 
     public SteamVR_Action_Boolean interactBtn;
     public SteamVR_Action_Boolean pickUpBtn;
+    private bool pickupClickWasDrop;
 
     public Hand hand;
     public Transform toolAttachPoint;
+    public Transform pickupableAttachPoint;
 
     void Update()
     {
@@ -35,31 +37,32 @@ public class PlayerToolController : MonoBehaviour
         if (!isHoldingObj || isHeldObjATool) // If I'm holding something that is a tool, or I am not holding anything
         {
             // Interact btn pressed & we're looking at an interactable
-            if (interactBtn.stateDown && hoveredObj != null)
+            if (interactBtn.stateUp && hoveredObj != null)
             {
                 InteractWithHoveredObj(hoveredObj, (Tool)heldObj);
             }
         }
 
         // Pick up / Put down btn presed
-        if (pickUpBtn.stateDown)
+        if (!isHoldingObj && pickUpBtn.stateUp && hoveredObj != null && hoveredObj is Pickupable && !pickupClickWasDrop)
         {
-            if (isHoldingObj)
-            {
-                DropDownObj();
-                // Not holding a tool and i'm hovering over a tool
-            }
-            else if (hoveredObj != null && hoveredObj is Pickupable)
-            {
-                PickUpObj((Pickupable)hoveredObj);
-            }
+            PickUpObj((Pickupable)hoveredObj);
+        } else if (isHoldingObj && pickUpBtn.stateDown)
+        {
+            DropDownObj();
+            pickupClickWasDrop = true;
+        }
+
+        if (pickUpBtn.stateUp)
+        {
+            pickupClickWasDrop = false;
         }
     }
 
     void FindInteractable(I_InteractableFinder iFinder)
     {
         if (iFinder != null)
-            hoveredObj = iFinder.FindInteractable();
+            hoveredObj = iFinder.FindInteractable((!isHoldingObj && pickUpBtn.state && !pickupClickWasDrop) || (isHoldingObj && interactBtn.state));
         else
             hoveredObj = null;
     }
@@ -78,7 +81,14 @@ public class PlayerToolController : MonoBehaviour
             heldObj = pu;
             heldObj.transform.position = toolAttachPoint.position;
             heldObj.transform.rotation = toolAttachPoint.rotation;
-            hand.AttachObject(heldObj.gameObject, GrabTypes.Grip, Hand.AttachmentFlags.ParentToHand);
+            
+            if (pu is Tool)
+            {
+                hand.AttachObject(heldObj.gameObject, GrabTypes.Grip, Hand.AttachmentFlags.ParentToHand, toolAttachPoint);
+            } else
+            {
+                hand.AttachObject(heldObj.gameObject, GrabTypes.Grip, Hand.AttachmentFlags.ParentToHand, pickupableAttachPoint);
+            }
 
             isHoldingObj = true;
         }

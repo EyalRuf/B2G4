@@ -5,15 +5,16 @@ using UnityEngine;
 using Valve.VR.InteractionSystem;
 public class Tool : Pickupable, I_InteractableFinder
 {
+    [Header("Tool")]
     public ToolInteractionRaycast tRaycast;
 
     public Transform ogTransform;
     public bool isFloatingBackToOriginalPos;
     public float posLerpScale;
 
-    public Highlightable FindInteractable()
+    public Highlightable FindInteractable(bool showRay)
     {
-        return tRaycast.PerformRaycast();
+        return tRaycast.PerformRaycast(showRay);
     }
 
     public override void OnAttachedToHand(Hand hand)

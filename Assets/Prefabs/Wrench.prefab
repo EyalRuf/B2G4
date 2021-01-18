@@ -202,7 +202,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3017663367337546079}
   - component: {fileID: 3017663367337545893}
-  - component: {fileID: 1977167268}
   - component: {fileID: 3017663367337546075}
   - component: {fileID: 3017663367337545894}
   - component: {fileID: 3017663367337546074}
@@ -247,20 +246,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &1977167268
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017663367337546078}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.04
-  m_Height: 0.5
-  m_Direction: 0
-  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!114 &3017663367337546075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 3017663367337546074}
+  renderer: {fileID: 7322503497989648064}
   rb: {fileID: 3017663367337545893}
   originalParent: {fileID: 0}
   isLockedInPlace: 0
@@ -409,7 +395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3017663367821950869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.2232, y: 0.155, z: -0.0773}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3017663367337546079}
@@ -427,8 +413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518aa732d4b2ed3448552b2f05c88539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayStartWidth: 0.015
-  rayEndWidth: 0.015
+  rayStartWidth: 0.01
+  rayEndWidth: 0.01
   rayDistance: 2
   rayIdleColor: {r: 1, g: 0.38023823, b: 0.19215685, a: 0.5882353}
   rayInteractColor: {r: 1, g: 0, b: 0.009791374, a: 0.5882353}
@@ -445,7 +431,7 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3017663367821950869}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 0

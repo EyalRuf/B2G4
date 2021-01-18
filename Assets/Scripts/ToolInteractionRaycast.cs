@@ -21,15 +21,16 @@ public class ToolInteractionRaycast : MonoBehaviour
         rayLineRenderer.endWidth = rayEndWidth;
     }
 
-    public Highlightable PerformRaycast()
+    public Highlightable PerformRaycast(bool showRay)
     {
+        rayLineRenderer.enabled = showRay;
         Highlightable highlightable = null;
 
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, rayDistance, raycastMask))
         {
-            highlightable = hit.collider.GetComponent<Highlightable>();
+            highlightable = hit.collider.GetComponentInChildren<Highlightable>();
 
             if (lastHL == null)
             {
