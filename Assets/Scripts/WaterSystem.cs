@@ -6,12 +6,18 @@ public class WaterSystem : MonoBehaviour
 {
     public BoltSystem filterBoltSystem;
     public BoltSystem waterBoltSystem;
-    public UserDiagnostics UD;
+
+    public bool isHydrolicSystemBuilt;
+    public bool isFilterGood;
+    public bool isWaterGood;
+
+    public string ionizationNumLow;
+    public string ionizationNumHigh;
 
     void Update()
     {
-        UD.isFilterGood = filterBoltSystem.IsSystemFunctional();
-        UD.isWaterGood = waterBoltSystem.IsSystemFunctional();
-        UD.isHydrolicSystemBuilt = filterBoltSystem.IsSystemBuilt() && waterBoltSystem.IsSystemBuilt();
+        isFilterGood = filterBoltSystem.IsSystemFunctional();
+        isWaterGood = waterBoltSystem.IsSystemFunctional();
+        isHydrolicSystemBuilt = filterBoltSystem.IsSystemBuilt() && waterBoltSystem.IsSystemBuilt();
     }
 }
