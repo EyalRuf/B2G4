@@ -20,9 +20,9 @@ TagManager:
   - Player
   - InteractableEmptyHand
   - InteractableTool
-  - 
-  - 
-  - 
+  - WrenchInteractables
+  - Post-Processing
+  - PincersInteractables
   - 
   - 
   - 

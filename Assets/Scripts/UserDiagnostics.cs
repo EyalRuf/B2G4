@@ -1,38 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Valve.VR;
 
 public class UserDiagnostics : MonoBehaviour
 {
     public SteamVR_Action_Boolean LeftHandY;
-    public Canvas UserDiagnostic;
-    public GameObject hydraulicText;
+    public GameObject diaInterface;
+    public TextMeshProUGUI hydraulicText;
 
-    private void Start()
-    {
-        hydraulicText.GetComponent<TextMesh>().text = "random number = " + Random.Range(-20f, 20f) + "\n" + "end";
-    }
+    public WaterSystem WS;
+
     private void Update()
     {
         if (LeftHandY.stateDown)
         {
-            if (UserDiagnostic.enabled)
-            {
-                UserDiagnostic.enabled = false;
-            }
-            else
-            {
-                UserDiagnostic.enabled = true;
-                monki();
-            }
+            diaInterface.SetActive(!diaInterface.activeSelf);
         }
-    }
-    private void monki()
-    {
-        hydraulicText.GetComponent<TextMesh>().text =
-            "Resistance Level = " + Random.Range(-20f, 20f) + "\n" +
-            "Water ionization = " + Random.Range(0f, 20f) + "\n" +
-            "Last filter replacement =" ;
+
+        hydraulicText.text =
+            !WS.isHydrolicSystemBuilt ? "Hydrolic system is missing components. \n Please attach them and try again." : (
+            "Resistance Level - " + (WS.isFilterGood && WS.isWaterGood ? "High" : "Low") + "\n" +
+            "Water ionization - " + (WS.isWaterGood ? WS.ionizationNumHigh : WS.ionizationNumLow) + "\n" +
+            "Last filter replacement - " + (WS.isFilterGood ? "25/01/2021" : "20/09/1995"));
     }
 }
+
