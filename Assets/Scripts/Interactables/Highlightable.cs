@@ -10,7 +10,10 @@ public class Highlightable : MonoBehaviour
 
     void Start()
     {
-        outline.OutlineColor = highlightColor;
+        if (outline != null)
+        {
+            outline.OutlineColor = highlightColor;
+        }
     }
 
     public virtual void Highlight()
