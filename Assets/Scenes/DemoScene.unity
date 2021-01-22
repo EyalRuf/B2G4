@@ -1030,6 +1030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 141745813}
+  - component: {fileID: 141745814}
   m_Layer: 9
   m_Name: HydraulicSystemScreen
   m_TagString: Untagged
@@ -1059,6 +1060,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &141745814
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141745812}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &184302071
 GameObject:
   m_ObjectHideFlags: 0
@@ -5122,6 +5135,7 @@ GameObject:
   - component: {fileID: 1012577911}
   - component: {fileID: 1012577910}
   - component: {fileID: 1012577909}
+  - component: {fileID: 1012577914}
   m_Layer: 9
   m_Name: Air System
   m_TagString: Untagged
@@ -5305,6 +5319,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012577907}
   m_CullTransparentMesh: 0
+--- !u!114 &1012577914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012577907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f716f96853b969d41ba5923d5e2b269a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!1 &1020242658
 GameObject:
   m_ObjectHideFlags: 0
@@ -12849,6 +12876,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1504984317}
+  - component: {fileID: 1504984318}
   m_Layer: 9
   m_Name: UnimplementedScreen
   m_TagString: Untagged
@@ -12877,6 +12905,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1504984318
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504984316}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1562666444
 GameObject:
   m_ObjectHideFlags: 0
@@ -14690,6 +14730,7 @@ GameObject:
   - component: {fileID: 1896410003}
   - component: {fileID: 1896410002}
   - component: {fileID: 1896410006}
+  - component: {fileID: 1896410007}
   m_Layer: 9
   m_Name: Diag UI
   m_TagString: Untagged
@@ -14884,6 +14925,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1896410007
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896410000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 579acd7ca43a80748ba487d324e77a46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1903230043
 GameObject:
   m_ObjectHideFlags: 0
@@ -15832,6 +15892,7 @@ GameObject:
   - component: {fileID: 1992498212}
   - component: {fileID: 1992498211}
   - component: {fileID: 1992498210}
+  - component: {fileID: 1992498213}
   m_Layer: 9
   m_Name: MainScreen
   m_TagString: Untagged
@@ -15909,6 +15970,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1992498213
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992498209}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2007190484
 GameObject:
   m_ObjectHideFlags: 0
