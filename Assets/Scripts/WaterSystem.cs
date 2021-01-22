@@ -18,5 +18,10 @@ public class WaterSystem : MonoBehaviour
         isFilterGood = filterBoltSystem.IsSystemFunctional();
         isWaterGood = waterBoltSystem.IsSystemFunctional();
         isHydrolicSystemBuilt = filterBoltSystem.IsSystemBuilt() && waterBoltSystem.IsSystemBuilt();
+
+        if (isFilterGood && isWaterGood)
+        {
+            //yay
+        }
     }
 }

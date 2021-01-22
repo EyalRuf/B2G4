@@ -12,6 +12,8 @@ public class UserDiagnostics : MonoBehaviour
     public SteamVR_Action_Boolean LeftHandY;
     public GameObject diaInterface;
     public TextMeshProUGUI hydraulicText;
+    public AudioSource diagSound;
+    public AudioClip diagOpenSound;
 
     public WaterSystem WS;
     public int engineFailures;
@@ -34,10 +36,16 @@ public class UserDiagnostics : MonoBehaviour
     private void Update()
     {
         if (LeftHandY.stateDown)
-        {
-            diaInterface.SetActive(!diaInterface.activeSelf);
-        }
+        { 
+                diaInterface.SetActive(!diaInterface.activeSelf);
 
+            if (!diagSound.isPlaying)
+            {
+                diagSound.clip = diagOpenSound;
+                diagSound.volume = 0.5f;
+                diagSound.Play();
+            }
+        }
         hydraulicText.text =
             !WS.isHydrolicSystemBuilt ? "Hydrolic system is missing components. \n Please attach them and try again." : (
             "Resistance Level - " + (WS.isFilterGood && WS.isWaterGood ? "200kΩ+" : WS.isFilterGood ? "120kΩ~" : "40kΩ-") + "\n" +
