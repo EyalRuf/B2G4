@@ -11,24 +11,24 @@ public class UiHighlightable : Highlightable
     public Image image;
     public TextMeshProUGUI text;
 
+    public FontStyles mainFontStyle;
+    public FontStyles highlightFontStyle;
     public Color mainColor;
 
     public override void Highlight()
     {
         text.color = highlightColor;
-        text.fontStyle = FontStyles.Underline;
+        text.fontStyle = highlightFontStyle;
     }
 
     public override void UnHighlight()
     {
         text.color = mainColor;
-        text.fontStyle = FontStyles.Normal;
+        text.fontStyle = mainFontStyle;
     }
 
     public override void Interact(Tool t)
     {
-        print("This is UI!");
-
         button.onClick.Invoke();
     }
 }
