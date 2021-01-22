@@ -10,9 +10,7 @@ public class WaterSystem : MonoBehaviour
     public bool isHydrolicSystemBuilt;
     public bool isFilterGood;
     public bool isWaterGood;
-
-    public string ionizationNumLow;
-    public string ionizationNumHigh;
+    public bool engineHasBeenRun;
 
     void Update()
     {

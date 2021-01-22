@@ -27,8 +27,6 @@ public class UiHighlightable : Highlightable
 
     public override void Interact(Tool t)
     {
-        print("This is UI!");
-
         button.onClick.Invoke();
     }
 }

@@ -22,9 +22,9 @@ public class UserDiagnostics : MonoBehaviour
 
         hydraulicText.text =
             !WS.isHydrolicSystemBuilt ? "Hydrolic system is missing components. \n Please attach them and try again." : (
-            "Resistance Level - " + (WS.isFilterGood && WS.isWaterGood ? "High" : "Low") + "\n" +
-            "Water ionization - " + (WS.isWaterGood ? WS.ionizationNumHigh : WS.ionizationNumLow) + "\n" +
-            "Last filter replacement - " + (WS.isFilterGood ? "25/01/2021" : "20/09/1995"));
+            "Resistance Level - " + (WS.isFilterGood && WS.isWaterGood ? "200kΩ+" : WS.isFilterGood ? "120kΩ~" : "40kΩ-") + "\n" +
+            "Water ionization - " + (WS.isWaterGood ? "High" : "Low") + "\n" +
+            "Last filter replacement - " + (WS.isFilterGood ? "25/01/2021" : "01/11/2020"));
     }
 }
 
