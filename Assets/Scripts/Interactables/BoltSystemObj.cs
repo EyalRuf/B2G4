@@ -18,12 +18,35 @@ public class BoltSystemObj : Pickupable
             // Only if in range 
             if (Vector3.Distance(transform.position, bSystem.anchorTransform.position) <= bSystem.anchoringDistance)
             {
-                mr.enabled = false;
+                if (mr != null)
+                {
+                    mr.enabled = false;
+                }
+                else
+                {
+                    MeshRenderer[] mrs = GetComponentsInChildren<MeshRenderer>(true);
+                    for (int i = 0; i < mrs.Length; i++)
+                    {
+                        mrs[i].enabled = false;
+                    }
+                }
                 bSystem.ObjectHovering();
             }
             else
             {
-                mr.enabled = true;
+                if (mr != null)
+                {
+                    mr.enabled = true;
+                }
+                else
+                {
+                    MeshRenderer[] mrs = GetComponentsInChildren<MeshRenderer>(true);
+                    for (int i = 0; i < mrs.Length; i++)
+                    {
+                        mrs[i].enabled = true;
+                    }
+                }
+
                 bSystem.ObjectNoLongerHovering();
             }
         }
@@ -46,7 +69,20 @@ public class BoltSystemObj : Pickupable
         // Only if in range & system doesn't have another filter connected already
         if (bSystem.attachedObj == null && Vector3.Distance(transform.position, bSystem.anchorTransform.position) <= bSystem.anchoringDistance)
         {
-            mr.enabled = true;
+            if (mr != null)
+            {
+                mr.enabled = true;
+            }
+            else
+            {
+                MeshRenderer[] mrs = GetComponentsInChildren<MeshRenderer>(true);
+                for (int i = 0; i < mrs.Length; i++)
+                {
+                    mrs[i].enabled = true;
+                }
+            }
+
+            bSystem.ObjectHovering();
             transform.parent = bSystem.transform;
             transform.position = bSystem.anchorTransform.position;
             transform.rotation = bSystem.anchorTransform.rotation;
