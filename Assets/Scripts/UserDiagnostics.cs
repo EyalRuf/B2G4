@@ -26,6 +26,8 @@ public class UserDiagnostics : MonoBehaviour
     public GameObject StartingEngineBtn;
     public TextMeshProUGUI StartingEngineBtnTxt;
 
+    public ErrorMaterial errorMat;
+
     [Header("Finish Maintenance")]
     public Toggle HSToggle;
     public TextMeshProUGUI engineFailuresTxt;
@@ -47,7 +49,7 @@ public class UserDiagnostics : MonoBehaviour
         hydraulicText.text =
             !WS.isHydrolicSystemBuilt ? "Hydrolic system is missing components. \n Please attach them and try again." : (
             "Resistance Level - " + (WS.isFilterGood && WS.isWaterGood ? "200kΩ+" : WS.isFilterGood ? "120kΩ~" : "40kΩ-") + "\n" +
-            "Water ionization - " + (WS.isWaterGood ? "High" : "Low") + "\n" +
+            "Water ionization - " + (WS.isWaterGood ? "Low" : "High") + "\n" +
             "Last filter replacement - " + (WS.isFilterGood ? "25/01/2021" : "01/11/2020"));
     }
 
@@ -104,6 +106,7 @@ public class UserDiagnostics : MonoBehaviour
         else
         {
             WS.isEngineOn = false;
+            errorMat.Error();
             engineFailures++;
             StartingEngineBtn.SetActive(false);
             StartEngineBtn.SetActive(true);

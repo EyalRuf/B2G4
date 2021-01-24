@@ -97,7 +97,7 @@ public class PlayerToolController : MonoBehaviour
     void DropDownObj()
     {
         // Detach, put down and deactivate old tool
-        hand.DetachObject(heldObj.gameObject);
+        hand.DetachObject(heldObj.gameObject, true);
 
         heldObj = null;
         isHoldingObj = false;

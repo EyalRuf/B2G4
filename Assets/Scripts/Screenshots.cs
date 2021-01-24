@@ -9,11 +9,11 @@ public class Screenshots : MonoBehaviour
 
     void Update()
     {
-        if (screenshotBtn.stateDown)
-        {
-            ScreenCapture.CaptureScreenshot(Application.dataPath + System.DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".png");
-            UnityEditor.AssetDatabase.Refresh();
-            print("screensht");
-        }
+        //if (screenshotBtn.stateDown)
+        //{
+        //    ScreenCapture.CaptureScreenshot(Application.dataPath + System.DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".png");
+        //    UnityEditor.AssetDatabase.Refresh();
+        //    print("screensht");
+        //}
     }
 }

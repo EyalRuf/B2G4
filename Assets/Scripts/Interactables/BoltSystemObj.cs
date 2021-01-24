@@ -8,6 +8,13 @@ public class BoltSystemObj : Pickupable
     public BoltSystem bSystem;
     public MeshRenderer mr;
     public bool isObjectFunctional;
+    public MeshRenderer[] mrs;
+
+    void Start()
+    {
+        if (mr == null)
+            mrs = GetComponentsInChildren<MeshRenderer>(true);
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,7 +31,6 @@ public class BoltSystemObj : Pickupable
                 }
                 else
                 {
-                    MeshRenderer[] mrs = GetComponentsInChildren<MeshRenderer>(true);
                     for (int i = 0; i < mrs.Length; i++)
                     {
                         mrs[i].enabled = false;
@@ -40,7 +46,6 @@ public class BoltSystemObj : Pickupable
                 }
                 else
                 {
-                    MeshRenderer[] mrs = GetComponentsInChildren<MeshRenderer>(true);
                     for (int i = 0; i < mrs.Length; i++)
                     {
                         mrs[i].enabled = true;
@@ -75,7 +80,6 @@ public class BoltSystemObj : Pickupable
             }
             else
             {
-                MeshRenderer[] mrs = GetComponentsInChildren<MeshRenderer>(true);
                 for (int i = 0; i < mrs.Length; i++)
                 {
                     mrs[i].enabled = true;
