@@ -222,37 +222,49 @@ public class Outline : MonoBehaviour {
   }
 
   List<Vector3> SmoothNormals(Mesh mesh) {
+        
+            try
+            {
+            var groups = mesh.vertices.Select((vertex, index) => new KeyValuePair<Vector3, int>(vertex, index)).GroupBy(pair => pair.Key);
 
-    // Group vertices by location
-    var groups = mesh.vertices.Select((vertex, index) => new KeyValuePair<Vector3, int>(vertex, index)).GroupBy(pair => pair.Key);
+            // Copy normals to a new list
+            var smoothNormals = new List<Vector3>(mesh.normals);
 
-    // Copy normals to a new list
-    var smoothNormals = new List<Vector3>(mesh.normals);
+            // Average normals for grouped vertices
+            foreach (var group in groups)
+            {
 
-    // Average normals for grouped vertices
-    foreach (var group in groups) {
+                // Skip single vertices
+                if (group.Count() == 1)
+                {
+                    continue;
+                }
 
-      // Skip single vertices
-      if (group.Count() == 1) {
-        continue;
-      }
+                // Calculate the average normal
+                var smoothNormal = Vector3.zero;
 
-      // Calculate the average normal
-      var smoothNormal = Vector3.zero;
+                foreach (var pair in group)
+                {
+                    smoothNormal += mesh.normals[pair.Value];
+                }
 
-      foreach (var pair in group) {
-        smoothNormal += mesh.normals[pair.Value];
-      }
+                smoothNormal.Normalize();
 
-      smoothNormal.Normalize();
+                // Assign smooth normal to each vertex
+                foreach (var pair in group)
+                {
+                    smoothNormals[pair.Value] = smoothNormal;
+                }
+            }
 
-      // Assign smooth normal to each vertex
-      foreach (var pair in group) {
-        smoothNormals[pair.Value] = smoothNormal;
-      }
-    }
-
-    return smoothNormals;
+            return smoothNormals;
+        }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+        // Group vertices by location
+        return new List<Vector3>();
   }
 
   void UpdateMaterialProperties() {
