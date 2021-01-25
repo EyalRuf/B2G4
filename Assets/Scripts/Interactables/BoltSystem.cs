@@ -6,6 +6,8 @@ public class BoltSystem : MonoBehaviour
     public BoltSystemObj attachedObj;
     public Bolt bolt;
 
+    public AudioSource wrenchSound;
+
     public Transform anchorTransform;
     public GameObject objectPlaceholder;
     public GameObject objectAnchor;
@@ -14,6 +16,10 @@ public class BoltSystem : MonoBehaviour
     public void UseBolt()
     {
         attachedObj.isLockedInPlace = bolt.isClosed;
+        if (!wrenchSound.isPlaying)
+        {
+            wrenchSound.Play();
+        }
     }
 
     public void DetachObj()
